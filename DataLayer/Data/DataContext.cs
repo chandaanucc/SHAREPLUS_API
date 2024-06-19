@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Shareplus.DataLayer.Models;
+using Shareplus.Model;
 using Shareplus.Models;
 
 namespace Shareplus.DataLayer.Data
@@ -10,16 +11,19 @@ namespace Shareplus.DataLayer.Data
         {
         }
 
-       public DbSet<Admin>Admins { get; set; } 
-
-    public DbSet<Associate> Associates { get; set; } 
-
-        
-        public DbSet<PDFile> FileUploads { get; set; } // Ensure this property is correctly named
+        public DbSet<Admin> Admins { get; set; } 
+        public DbSet<Associate> Associates { get; set; } 
+        public DbSet<PDFile> FileUploads { get; set; }
+        public DbSet<UserDetail> UserDetails { get; set; } // Add the UserDetail DbSet
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PDFile>().ToTable("FileUploads");
+
+            // Ensure the table name matches the entity configuration
+            modelBuilder.Entity<UserDetail>().ToTable("userdetail");
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
