@@ -27,7 +27,7 @@ namespace Shareplus.Controllers
             if (pdfFile == null)
                 return NotFound();
 
-            return File(pdfFile.Data, "application/pdf","Document.pdf");
+            return File(pdfFile.Data, "application/pdf");
         }
     }
 }
