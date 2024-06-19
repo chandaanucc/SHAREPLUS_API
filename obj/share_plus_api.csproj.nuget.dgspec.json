@@ -4,14 +4,14 @@
     "D:\\Documents\\Flutter\\FILESHARE\\API\\share_plus_api\\share_plus_api.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\Flutter\\FILESHARE\\API\\DataLayer\\DataLayer.csproj": {
+    "D:\\Documents\\Flutter\\FILESHARE\\API\\share_plus_api\\share_plus_api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\Flutter\\FILESHARE\\API\\DataLayer\\DataLayer.csproj",
-        "projectName": "DataLayer",
-        "projectPath": "D:\\Documents\\Flutter\\FILESHARE\\API\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "D:\\Documents\\Flutter\\FILESHARE\\API\\share_plus_api\\share_plus_api.csproj",
+        "projectName": "share_plus_api",
+        "projectPath": "D:\\Documents\\Flutter\\FILESHARE\\API\\share_plus_api\\share_plus_api.csproj",
         "packagesPath": "C:\\Users\\91974\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\Flutter\\FILESHARE\\API\\DataLayer\\obj\\",
+        "outputPath": "D:\\Documents\\Flutter\\FILESHARE\\API\\share_plus_api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\91974\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -42,83 +42,6 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[8.0.6, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.6, )"
-            },
-            "Pomelo.EntityFrameworkCore.MySql": {
-              "target": "Package",
-              "version": "[8.0.2, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.105/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "D:\\Documents\\Flutter\\FILESHARE\\API\\share_plus_api\\share_plus_api.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Documents\\Flutter\\FILESHARE\\API\\share_plus_api\\share_plus_api.csproj",
-        "projectName": "share_plus_api",
-        "projectPath": "D:\\Documents\\Flutter\\FILESHARE\\API\\share_plus_api\\share_plus_api.csproj",
-        "packagesPath": "C:\\Users\\91974\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\Flutter\\FILESHARE\\API\\share_plus_api\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\91974\\AppData\\Roaming\\NuGet\\NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "D:\\Documents\\Flutter\\FILESHARE\\API\\DataLayer\\DataLayer.csproj": {
-                "projectPath": "D:\\Documents\\Flutter\\FILESHARE\\API\\DataLayer\\DataLayer.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Http.Abstractions": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.5, )"
@@ -130,10 +53,6 @@
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.6, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.6, )"
             },

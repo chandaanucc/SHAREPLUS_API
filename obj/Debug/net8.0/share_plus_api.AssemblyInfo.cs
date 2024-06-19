@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("share_plus_api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a13f7eea047e5890cc0b64bb2d123b14ab1d855a")]
 [assembly: System.Reflection.AssemblyProductAttribute("share_plus_api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("share_plus_api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

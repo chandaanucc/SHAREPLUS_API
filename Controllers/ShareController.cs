@@ -11,23 +11,15 @@ namespace Shareplus.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ViewFilesController : ControllerBase
+    public class ShareFilesController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public ViewFilesController(DataContext context)
+        public ShareFilesController(DataContext context)
         {
             _context = context;
         }
 
-        [HttpGet("view/{id}")]
-        public async Task<IActionResult> ViewPdf(int id)
-        {
-            var pdfFile = await _context.FileUploads.FindAsync(id); 
-            if (pdfFile == null)
-                return NotFound();
-
-            return File(pdfFile.Data, "application/pdf","Document.pdf");
-        }
     }
+
 }
