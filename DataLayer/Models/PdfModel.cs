@@ -8,7 +8,7 @@ namespace Shareplus.DataLayer.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int Id { get; internal set; }
         public string ? FileName { get; set; }
         public byte[] ? Data { get; set; }
         //public string ? ContentType { get; set; }

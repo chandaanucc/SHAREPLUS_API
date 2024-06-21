@@ -23,11 +23,19 @@ namespace Shareplus.Controllers
         [HttpGet("view/{id}")]
         public async Task<IActionResult> ViewPdf(int id)
         {
-            var pdfFile = await _context.FileUploads.FindAsync(id); 
-            if (pdfFile == null)
-                return NotFound();
+            try
+            {
+                var pdfFile = await _context.FileUploads.FindAsync(id);
+                if (pdfFile == null)
+                    return NotFound();
 
-            return File(pdfFile.Data, "application/pdf");
+                return File(pdfFile.Data, "application/pdf");
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it as needed
+                return StatusCode(StatusCodes.Status500InternalServerError, $"An error occurred: {ex.Message}");
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Shareplus.Controllers
     public class UploadFilesController : ControllerBase
     {
         private readonly DataContext _context;
+        private const long MaxFileSize = 10 * 1024 * 1024; // 10 MB
 
         public UploadFilesController(DataContext context)
         {
@@ -23,28 +24,33 @@ namespace Shareplus.Controllers
         [HttpPost("upload")]
         public async Task<IActionResult> UploadPdf([FromForm] UploadDTO pdfUploadDto)
         {
-            if (pdfUploadDto.File == null || pdfUploadDto.File.Length == 0)
-                return BadRequest("Upload a valid PDF file.");
+            
+                if (pdfUploadDto.File == null || pdfUploadDto.File.Length == 0)
+                    return BadRequest("Upload a valid PDF file.");
 
-            using var memoryStream = new MemoryStream();
-            await pdfUploadDto.File.CopyToAsync(memoryStream);
-            var pdfFile = new PDFile
-            {
-                FileName = pdfUploadDto.File.FileName,
-                Data = memoryStream.ToArray()
-                //ContentType = pdfUploadDto.File.ContentType
-            };
-            _context.FileUploads.Add(pdfFile); 
-            await _context.SaveChangesAsync();
+                if (pdfUploadDto.File.Length > MaxFileSize)
+                    return BadRequest($"File size must be less than {MaxFileSize / (1024 * 1024)} MB.");
 
-            var pdfFileDto = new UploadDTO
-            {
-                Id = pdfFile.Id,
-                FileName = pdfFile.FileName
-                //ContentType = pdfFile.ContentType
-            };
+                using var memoryStream = new MemoryStream();
+                await pdfUploadDto.File.CopyToAsync(memoryStream);
 
-            return Ok(pdfFileDto);
+                var pdfFile = new PDFile
+                {
+                    FileName = pdfUploadDto.File.FileName,
+                    Data = memoryStream.ToArray()
+                };
+
+                _context.FileUploads.Add(pdfFile);
+                await _context.SaveChangesAsync();
+
+                var pdfFileDto = new UploadDTO
+                {
+                    //Id = pdfFile.Id,
+                    FileName = pdfFile.FileName
+                };
+
+                return Ok(pdfFileDto);
+            
         }
 
         
