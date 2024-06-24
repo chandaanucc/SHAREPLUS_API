@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Shareplus.Model
 {
     [Table("userdetail")]
-    public class UserDetail
+    public class User
     {
         [Key]
         public int Id { get; set; }

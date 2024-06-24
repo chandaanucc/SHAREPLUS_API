@@ -33,7 +33,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IAuthDL, AuthDL>(); 
+
 
 var app = builder.Build();
 
