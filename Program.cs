@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Shareplus.DataLayer;
 using Shareplus.DataLayer.Data;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,11 +21,12 @@ builder.Services.Configure<FormOptions>(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", 
+    options.AddPolicy("Flutter",
         builder => builder
-            .AllowAnyOrigin() 
             .AllowAnyMethod()
             .AllowAnyHeader()
+            .AllowAnyOrigin()
+            
     );
 });
     
@@ -43,10 +45,17 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("Flutter");
+app.Use(async (context, next) =>
+{
+    Console.WriteLine("CORS headers:");
+    foreach (var header in context.Response.Headers)
+    {
+        Console.WriteLine($"{header.Key}: {header.Value}");
+    }
+    await next();
+});
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
-
