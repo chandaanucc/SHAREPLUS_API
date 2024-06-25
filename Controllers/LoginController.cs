@@ -48,12 +48,18 @@ namespace Shareplus.Controllers
 
         // Logout endpoint
         [HttpPost("logout")]
-        public IActionResult Logout()
-        {
-            _logger.LogInformation("Logout attempt");
-            // Perform logout actions here
-            return Ok("Logout Successful");
-        }
+public IActionResult Logout()
+{
+    
+    string username = User.Identity.Name; // Get the username of the logged-in user from the JWT token
+    
+    _logger.LogInformation($"Logout attempt - User '{username}' logged out successfully");
+    
+    
+    // Perform logout actions here, such as invalidating the session or token
+    
+    return Redirect("/login"); // Redirect to the login page after logout
+}
 
         // Register endpoint for admin
         [HttpPost("register-admin")]
