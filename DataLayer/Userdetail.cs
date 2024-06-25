@@ -11,7 +11,7 @@ namespace Shareplus.Model
 
         [Required]
         [MaxLength(100)]
-        public string UserName { get; set; }
+        public string Username { get; set; }
 
         [Required]
         [MaxLength(100)]

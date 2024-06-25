@@ -24,25 +24,25 @@ namespace Shareplus.Controllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] User login)
         {
-            _logger.LogInformation("Login attempt for user: {Username}", login.UserName);
+            _logger.LogInformation("Login attempt for user: {Username}", login.Username);
 
             // Check if the user is an admin
-            var admin = _context.Admins.FirstOrDefault(u => u.Username == login.UserName && u.Password == login.Password);
+            var admin = _context.Admins.FirstOrDefault(u => u.Username == login.Username && u.Password == login.Password);
             if (admin != null)
             {
-                _logger.LogInformation("Admin login successful for user: {Username}", login.UserName);
+                _logger.LogInformation("Admin login successful for user: {Username}", login.Username);
                 return Ok(new { Role = "Admin", Message = "Login Successful, Now You can see AdminHomescreen" });
             }
 
             // Check if the user is an associate
-            var associate = _context.Associates.FirstOrDefault(u => u.Username == login.UserName && u.Password == login.Password);
+            var associate = _context.Associates.FirstOrDefault(u => u.Username == login.Username && u.Password == login.Password);
             if (associate != null)
             {
-                _logger.LogInformation("Associate login successful for user: {Username}", login.UserName);
+                _logger.LogInformation("Associate login successful for user: {Username}", login.Username);
                 return Ok(new { Role = "Associate", Message = "Login Successful, Now you can see AssociateHomeScreen" });
             }
 
-            _logger.LogWarning("Login failed for user: {Username}", login.UserName);
+            _logger.LogWarning("Login failed for user: {Username}", login.Username);
             return Unauthorized();
         }
 

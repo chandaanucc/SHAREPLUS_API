@@ -27,8 +27,10 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
             .AllowAnyOrigin()
             
+            
     );
 });
+
     
 
 builder.Services.AddEndpointsApiExplorer();
@@ -55,6 +57,7 @@ app.Use(async (context, next) =>
     }
     await next();
 });
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
